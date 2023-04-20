@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.EditorInput;
 using Autodesk.Civil.ApplicationServices;
 using Autodesk.Civil.DatabaseServices;
 using Application = Autodesk.AutoCAD.ApplicationServices.Core.Application;
@@ -77,5 +78,35 @@ public partial class SelectAlignmentDialog : Window
 	public bool? ShowModal()
 	{
 		return Application.ShowModalWindow(this);
+	}
+
+	private void BtnSelectObject_OnClick(object sender, RoutedEventArgs e)
+	{
+		Editor editor = Application.DocumentManager.MdiActiveDocument.Editor;
+
+		var peo = new PromptEntityOptions("\nSelect Alignment: ");
+		peo.SetRejectMessage("\nSelected entity must be of type: Alignment");
+
+		peo.AddAllowedClass(typeof(Alignment), true);
+
+		var entity = editor.GetEntity(peo);
+
+		if (entity.Status != PromptStatus.OK)
+			return;
+
+		using var tr = new TransactAndForget(true);
+
+		var alignment = tr.GetObject<Alignment>(entity.ObjectId, OpenMode.ForRead);
+
+		int index = 0;
+		foreach (Alignment alignment1 in Alignments)
+		{
+			if (alignment.ObjectId.Equals(alignment1.ObjectId))
+			{
+				CmbAlignments.SelectedIndex = index;
+				break;
+			}
+			index++;
+		}
 	}
 }

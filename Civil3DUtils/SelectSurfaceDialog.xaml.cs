@@ -3,7 +3,9 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.EditorInput;
 using Autodesk.Civil.ApplicationServices;
+using Autodesk.Civil.DatabaseServices;
 using Application = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 using Surface = Autodesk.Civil.DatabaseServices.Surface;
 
@@ -77,5 +79,35 @@ public partial class SelectSurfaceDialog : Window
 	public bool? ShowModal()
 	{
 		return Application.ShowModalWindow(this);
+	}
+
+	private void BtnSelectObject_OnClick(object sender, RoutedEventArgs e)
+	{
+		Editor editor = Application.DocumentManager.MdiActiveDocument.Editor;
+
+		var peo = new PromptEntityOptions("\nSelect Surface: ");
+		peo.SetRejectMessage("\nSelected entity must be of type: Surface");
+
+		peo.AddAllowedClass(typeof(Surface), true);
+
+		var entity = editor.GetEntity(peo);
+
+		if (entity.Status != PromptStatus.OK)
+			return;
+
+		using var tr = new TransactAndForget(true);
+
+		var surface = tr.GetObject<Surface>(entity.ObjectId, OpenMode.ForRead);
+
+		int index = 0;
+		foreach (Surface surface1 in Surfaces)
+		{
+			if (surface.ObjectId.Equals(surface1.ObjectId))
+			{
+				CmbSurfaces.SelectedIndex = index;
+				break;
+			}
+			index++;
+		}
 	}
 }

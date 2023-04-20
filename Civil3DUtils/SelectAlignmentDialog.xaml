@@ -55,10 +55,12 @@
         </ComboBox>
 
         <Button
+            x:Name="BtnSelectObject"
             Grid.Row="0"
             Grid.Column="1"
             Width="20"
-            Height="20">
+            Height="20"
+            Click="BtnSelectObject_OnClick">
             <Image Source="{StaticResource SelectObjectIcon}" />
         </Button>
 
