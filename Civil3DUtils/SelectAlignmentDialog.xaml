@@ -1,0 +1,111 @@
+﻿<Window
+    x:Class="Civil3DUtils.SelectAlignmentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Select Alignment"
+    Width="280"
+    Height="180"
+    MinWidth="280"
+    MinHeight="180"
+    MaxHeight="180"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <BitmapImage x:Key="SelectObjectIcon" UriSource="pack://application:,,,/Civil3DUtils;component/Assets/selectobject.ico" />
+        <BitmapImage x:Key="AlignmentIcon" UriSource="pack://application:,,,/Civil3DUtils;component/Assets/alignment.ico" />
+    </Window.Resources>
+
+    <Grid Margin="10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <ComboBox
+            x:Name="CmbAlignments"
+            Height="22"
+            Margin="0,0,4,0"
+            SelectionChanged="CmbAlignments_OnSelectionChanged">
+            <ComboBox.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF0F0F0" />
+                    <GradientStop Offset="1" Color="#FFE5E5E5" />
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image
+                            MaxWidth="16"
+                            MaxHeight="16"
+                            Source="{StaticResource AlignmentIcon}" />
+                        <TextBlock Margin="2,0" Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="20"
+            Height="20">
+            <Image Source="{StaticResource SelectObjectIcon}" />
+        </Button>
+
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="0,2"
+            VerticalAlignment="Bottom">
+            Description:
+        </TextBlock>
+
+        <Border
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Background="#FFF0F0F0"
+            BorderBrush="Black"
+            BorderThickness="1">
+            <TextBlock
+                x:Name="TxtDescription"
+                Margin="4"
+                TextWrapping="Wrap" />
+        </Border>
+
+        <Grid
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="1"
+                Height="23"
+                Margin="0,0,2,0"
+                Click="Button_OK_Click"
+                Content="OK" />
+            <Button
+                Grid.Column="2"
+                Height="23"
+                Margin="2,0,0,0"
+                Click="Button_Cancel_Click"
+                Content="Close" />
+        </Grid>
+    </Grid>
+</Window>
