@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Civil3DUtils", "Civil3DUtils\Civil3DUtils.csproj", "{6A7BE168-06FC-4D06-A8A2-1DB7DC9A1AD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivilDialogs", "src\CivilDialogs\CivilDialogs.csproj", "{6A7BE168-06FC-4D06-A8A2-1DB7DC9A1AD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePlugin", "SamplePlugin\SamplePlugin.csproj", "{D71552FB-0B03-4186-8AC4-B2161E5F80F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePlugin", "src\SamplePlugin\SamplePlugin.csproj", "{D71552FB-0B03-4186-8AC4-B2161E5F80F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

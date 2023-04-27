@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 
-namespace Civil3DUtils;
+namespace CivilDialogs;
 
 internal static class WindowExtensions
 {

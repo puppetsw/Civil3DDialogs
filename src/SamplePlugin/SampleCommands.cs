@@ -1,6 +1,6 @@
 ﻿using Autodesk.AutoCAD.ApplicationServices.Core;
 using Autodesk.AutoCAD.Runtime;
-using Civil3DUtils;
+using CivilDialogs;
 using SamplePlugin;
 
 [assembly: CommandClass(typeof(SampleCommands))]

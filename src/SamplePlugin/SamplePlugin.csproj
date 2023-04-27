@@ -68,9 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Civil3DUtils\Civil3DUtils.csproj">
+    <ProjectReference Include="..\CivilDialogs\CivilDialogs.csproj">
       <Project>{6a7be168-06fc-4d06-a8a2-1db7dc9a1ad5}</Project>
-      <Name>Civil3DUtils</Name>
+      <Name>CivilDialogs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,7 +7,7 @@ using Autodesk.Civil.ApplicationServices;
 using Autodesk.Civil.DatabaseServices;
 using Application = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 
-namespace Civil3DUtils;
+namespace CivilDialogs;
 
 /// <summary>
 /// Interaction logic for PointGroupSelectView.xaml

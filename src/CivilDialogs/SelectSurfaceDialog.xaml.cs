@@ -5,11 +5,10 @@ using System.Windows.Controls;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.Civil.ApplicationServices;
-using Autodesk.Civil.DatabaseServices;
 using Application = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 using Surface = Autodesk.Civil.DatabaseServices.Surface;
 
-namespace Civil3DUtils;
+namespace CivilDialogs;
 
 /// <summary>
 /// Interaction logic for SurfaceSelectView.xaml
