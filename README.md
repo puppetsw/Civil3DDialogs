@@ -9,11 +9,13 @@ I created this library to be used with multiple of my Civil 3D projects. It cont
 
 
 ### Dialogs
-* SelectAlignmentDialog
-* [SelectSurfaceDialog](#SelectSurfaceDialog-Info)
-* SelectPointGroupDialog
-* LayerSelectDialog
-* LayerCreateDialog
+* [SelectAlignmentDialog](#selectalignmentdialog)
+* [SelectSurfaceDialog](#selectsurfacedialog)
+* [SelectPointGroupDialog](#selectpointgroupdialog)
+* [LayerSelectDialog](#layerselectdialog)
+* [LayerCreateDialog](layercreatedialog)
+
+## SelectAlignmentDialog
 
 ## SelectSurfaceDialog
 
@@ -30,6 +32,10 @@ if (surfaces.Count > 1)
 ```
 
 ![image](https://user-images.githubusercontent.com/79826944/233510297-7b0108a3-d9ad-4911-bfc9-f651a89115c4.png)
+
+## SelectPointGroupDialog
+
+## LayerSelectDialog
 
 ## LayerCreateDialog
 ![image](https://user-images.githubusercontent.com/79826944/235406600-b58b7540-378b-4818-ae4d-8dc29dbe8498.png)
