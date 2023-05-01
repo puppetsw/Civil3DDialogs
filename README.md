@@ -27,6 +27,10 @@ if (surfaces.Count > 1)
 * LayerSelectDialog
 * LayerCreateDialog
 
+## LayerCreateDialog
+![image](https://user-images.githubusercontent.com/79826944/235406600-b58b7540-378b-4818-ae4d-8dc29dbe8498.png)
+
+
 ## Getting Started
 
 ### Dependencies
