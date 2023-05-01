@@ -64,14 +64,14 @@ var dialog = new LayerCreateDialog();
 dialog.ShowModal();
 
 if (dialog.Layer == null)
-	return;
+   return;
 
 using var tr = Application.DocumentManager.MdiActiveDocument.TransactionManager.StartTransaction();
 
 var layerTable = (LayerTable)tr.GetObject(Application.DocumentManager.MdiActiveDocument.Database.LayerTableId, OpenMode.ForRead);
 
 if (layerTable.Has(dialog.Layer.Name))
-	return;
+   return;
 
 layerTable.UpgradeOpen();
 layerTable.Add(dialog.Layer);
