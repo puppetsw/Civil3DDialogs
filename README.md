@@ -17,6 +17,16 @@ I created this library to be used with multiple of my Civil 3D projects. It cont
 
 ## SelectAlignmentDialog
 
+```cs
+var dialog = new SelectAlignmentDialog();
+
+if (dialog.ShowModal() == true)
+   var alignment = dialog.SelectedAlignment;
+```
+
+![Screenshot 2023-05-01 141017](https://user-images.githubusercontent.com/79826944/235407630-b821b507-7ea8-45c1-ace6-7a6b5de5eb98.png)
+
+
 ## SelectSurfaceDialog
 
 ```cs
@@ -35,9 +45,38 @@ if (surfaces.Count > 1)
 
 ## SelectPointGroupDialog
 
+```cs
+var dialog = new SelectPointGroupDialog();
+
+if (dialog.ShowModal() == true)
+   var pointGroup = dialog.SelectedPointGroup;
+```
+
+![image](https://user-images.githubusercontent.com/79826944/235407768-ba462521-f847-48fd-8434-56131f0d4795.png)
+
 ## LayerSelectDialog
 
 ## LayerCreateDialog
+
+```cs
+
+var dialog = new LayerCreateDialog();
+
+dialog.ShowModal();
+
+if (dialog.Layer != null)
+{
+   using var tr = Application.DocumentManager.MdiActiveDocument.StartTransaction();
+   
+   
+   
+   tr.Commit();
+}
+   
+
+
+```
+
 ![image](https://user-images.githubusercontent.com/79826944/235406600-b58b7540-378b-4818-ae4d-8dc29dbe8498.png)
 
 
