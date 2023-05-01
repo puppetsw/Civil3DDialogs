@@ -1,4 +1,5 @@
-﻿using Autodesk.AutoCAD.ApplicationServices.Core;
+﻿using System;
+using Autodesk.AutoCAD.ApplicationServices.Core;
 using Autodesk.AutoCAD.Runtime;
 using CivilDialogs;
 using SamplePlugin;
@@ -52,5 +53,16 @@ namespace SamplePlugin
 				Application.DocumentManager.MdiActiveDocument.Editor.WriteMessage($"\nSelected Point Group: {dialog.SelectedPointGroup.Name}");
 			}
 		}
+
+		[CommandMethod("WMS", "ShowCreateLayerDialog", CommandFlags.Modal)]
+		public void ShowCreateLayerDialog()
+		{
+			var dialog = new LayerCreateDialog();
+
+			dialog.ShowModal();
+
+			Console.WriteLine(dialog.Layer.Name);
+		}
+
 	}
 }

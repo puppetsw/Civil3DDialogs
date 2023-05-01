@@ -57,6 +57,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -69,15 +70,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\BooleanYesNoConverter.cs" />
+    <Compile Include="Converters\SystemDrawingColorToSolidBrushConverter.cs" />
     <Compile Include="Helpers\LayerPropertiesTemplateSelector.cs" />
-    <Compile Include="Helpers\LineweightHelper.cs" />
     <Compile Include="LayerCreateDialog.xaml.cs">
       <DependentUpon>LayerCreateDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\LayerProperties.cs" />
     <Compile Include="Models\ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelayCommand.cs" />
     <Compile Include="SelectAlignmentDialog.xaml.cs">
       <DependentUpon>SelectAlignmentDialog.xaml</DependentUpon>
     </Compile>
@@ -88,7 +88,6 @@
       <DependentUpon>SelectSurfaceDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="TransactAndForget.cs" />
-    <Compile Include="ViewModel\LayerCreateDialogViewModel.cs" />
     <Compile Include="WindowExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +108,9 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\dotsbutton.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\alignment.ico" />
     <Resource Include="Assets\app.ico" />
