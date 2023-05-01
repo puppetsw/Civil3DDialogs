@@ -15,8 +15,8 @@
     mc:Ignorable="d">
 
     <Window.Resources>
-        <BitmapImage x:Key="SelectObjectIcon" UriSource="pack://application:,,,/Civil3DUtils;component/Assets/selectobject.ico" />
-        <BitmapImage x:Key="SurfaceIcon" UriSource="pack://application:,,,/Civil3DUtils;component/Assets/surface.ico" />
+        <BitmapImage x:Key="SelectObjectIcon" UriSource="pack://application:,,,/CivilDialogs;component/Assets/selectobject.ico" />
+        <BitmapImage x:Key="SurfaceIcon" UriSource="pack://application:,,,/CivilDialogs;component/Assets/surface.ico" />
     </Window.Resources>
 
     <Grid Margin="10,0">
