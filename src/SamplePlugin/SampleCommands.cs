@@ -61,7 +61,8 @@ namespace SamplePlugin
 
 			dialog.ShowModal();
 
-			Console.WriteLine(dialog.Layer.Name);
+			if (dialog.Layer != null)
+				Console.WriteLine(dialog.Layer.Name);
 		}
 
 	}
