@@ -57,6 +57,26 @@ if (dialog.ShowModal() == true)
 ## LayerSelectDialog
 
 ## LayerCreateDialog
+
+```cs
+
+var dialog = new LayerCreateDialog();
+
+dialog.ShowModal();
+
+if (dialog.Layer != null)
+{
+   using var tr = Application.DocumentManager.MdiActiveDocument.StartTransaction();
+   
+   
+   
+   tr.Commit();
+}
+   
+
+
+```
+
 ![image](https://user-images.githubusercontent.com/79826944/235406600-b58b7540-378b-4818-ae4d-8dc29dbe8498.png)
 
 
