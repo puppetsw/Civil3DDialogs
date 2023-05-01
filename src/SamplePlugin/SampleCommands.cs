@@ -1,5 +1,6 @@
 ﻿using System;
 using Autodesk.AutoCAD.ApplicationServices.Core;
+using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Runtime;
 using CivilDialogs;
 using SamplePlugin;
@@ -61,9 +62,22 @@ namespace SamplePlugin
 
 			dialog.ShowModal();
 
-			if (dialog.Layer != null)
-				Console.WriteLine(dialog.Layer.Name);
-		}
+			if (dialog.Layer == null)
+				return;
 
+			using var tr = Application.DocumentManager.MdiActiveDocument.TransactionManager.StartTransaction();
+
+			var layerTable = (LayerTable)tr.GetObject(Application.DocumentManager.MdiActiveDocument.Database.LayerTableId, OpenMode.ForRead);
+
+			if (layerTable.Has(dialog.Layer.Name))
+			{
+				return;
+			}
+
+			layerTable.UpgradeOpen();
+			layerTable.Add(dialog.Layer);
+			tr.AddNewlyCreatedDBObject(dialog.Layer, true);
+			tr.Commit();
+		}
 	}
 }

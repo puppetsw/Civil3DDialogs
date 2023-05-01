@@ -32,7 +32,7 @@ public sealed partial class LayerCreateDialog
 	public string LayerName
 	{
 		get => (string)GetValue(LayerNameProperty);
-		set => SetValue(LayerNameProperty, value);
+		private set => SetValue(LayerNameProperty, value);
 	}
 
 	public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(
@@ -41,7 +41,7 @@ public sealed partial class LayerCreateDialog
 	public Color Color
 	{
 		get => (Color)GetValue(ColorProperty);
-		set => SetValue(ColorProperty, value);
+		private set => SetValue(ColorProperty, value);
 	}
 
 
@@ -51,7 +51,7 @@ public sealed partial class LayerCreateDialog
 	public LineWeight LineWeight
 	{
 		get => (LineWeight)GetValue(LineWeightProperty);
-		set => SetValue(LineWeightProperty, value);
+		private set => SetValue(LineWeightProperty, value);
 	}
 
 	public static readonly DependencyProperty LineTypeDisplayNameProperty = DependencyProperty.Register(
@@ -60,7 +60,7 @@ public sealed partial class LayerCreateDialog
 	public string LineTypeDisplayName
 	{
 		get => (string)GetValue(LineTypeDisplayNameProperty);
-		set => SetValue(LineTypeDisplayNameProperty, value);
+		private set => SetValue(LineTypeDisplayNameProperty, value);
 	}
 
 	public static readonly DependencyProperty IsOnProperty = DependencyProperty.Register(
@@ -69,7 +69,7 @@ public sealed partial class LayerCreateDialog
 	public bool IsOn
 	{
 		get => (bool)GetValue(IsOnProperty);
-		set => SetValue(IsOnProperty, value);
+		private set => SetValue(IsOnProperty, value);
 	}
 
 	public static readonly DependencyProperty IsLockedProperty = DependencyProperty.Register(
@@ -78,7 +78,7 @@ public sealed partial class LayerCreateDialog
 	public bool IsLocked
 	{
 		get => (bool)GetValue(IsLockedProperty);
-		set => SetValue(IsLockedProperty, value);
+		private set => SetValue(IsLockedProperty, value);
 	}
 
 	public static readonly DependencyProperty IsFrozenProperty = DependencyProperty.Register(
@@ -87,7 +87,7 @@ public sealed partial class LayerCreateDialog
 	public bool IsFrozen
 	{
 		get => (bool)GetValue(IsFrozenProperty);
-		set => SetValue(IsFrozenProperty, value);
+		private set => SetValue(IsFrozenProperty, value);
 	}
 
 	public static readonly DependencyProperty IsPlottableProperty = DependencyProperty.Register(
@@ -96,10 +96,10 @@ public sealed partial class LayerCreateDialog
 	public bool IsPlottable
 	{
 		get => (bool)GetValue(IsPlottableProperty);
-		set => SetValue(IsPlottableProperty, value);
+		private set => SetValue(IsPlottableProperty, value);
 	}
 
-	public ObjectId LineTypeObjectId { get; set; }
+	private ObjectId LineTypeObjectId { get; set; }
 
 	public LayerCreateDialog()
 	{
@@ -126,6 +126,8 @@ public sealed partial class LayerCreateDialog
 		Loaded -= OnLoaded;
 
 		Color = Color.FromColorIndex(ColorMethod.ByPen, 7);
+
+		IsOn = true;
 
 		using var tr = new TransactAndForget(true);
 
