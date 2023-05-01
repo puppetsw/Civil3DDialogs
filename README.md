@@ -4,7 +4,18 @@ A library of helpful dialogs and helper methods to use with your Autodesk Civil 
 
 ## Description
 
-I created this library to be used with multiple Civil 3D projects. It contains common dialogs that I have used. Such as the `SelectSurfaceDialog`. I wanted a way to display a dialog if there were multiple surfaces in a drawing to the user, similar to the way Civil 3D does it in-built. 
+I created this library to be used with multiple of my Civil 3D projects. It contains common dialogs that I have used and created.
+
+
+
+### Dialogs
+* SelectAlignmentDialog
+* [SelectSurfaceDialog](#SelectSurfaceDialog-Info)
+* SelectPointGroupDialog
+* LayerSelectDialog
+* LayerCreateDialog
+
+## SelectSurfaceDialog
 
 ```cs
 var surfaces = CivilApplication.ActiveDocument.GetSurfaceIds();
@@ -19,13 +30,6 @@ if (surfaces.Count > 1)
 ```
 
 ![image](https://user-images.githubusercontent.com/79826944/233510297-7b0108a3-d9ad-4911-bfc9-f651a89115c4.png)
-
-### Dialogs
-* SelectAlignmentDialog
-* SelectSurfaceDialog
-* SelectPointGroupDialog
-* LayerSelectDialog
-* LayerCreateDialog
 
 ## LayerCreateDialog
 ![image](https://user-images.githubusercontent.com/79826944/235406600-b58b7540-378b-4818-ae4d-8dc29dbe8498.png)
