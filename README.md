@@ -13,7 +13,7 @@ I created this library to be used with multiple of my Civil 3D projects. It cont
 * [SelectSurfaceDialog](#selectsurfacedialog)
 * [SelectPointGroupDialog](#selectpointgroupdialog)
 * [LayerSelectDialog](#layerselectdialog)
-* [LayerCreateDialog](layercreatedialog)
+* [LayerCreateDialog](#layercreatedialog)
 
 ## SelectAlignmentDialog
 
