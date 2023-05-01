@@ -1,4 +1,4 @@
-# Civil3DUtils
+# CivilDialogs
 
 A library of helpful dialogs and helper methods to use with your Autodesk Civil 3D .NET projects. 
 
@@ -59,22 +59,24 @@ if (dialog.ShowModal() == true)
 ## LayerCreateDialog
 
 ```cs
-
 var dialog = new LayerCreateDialog();
 
 dialog.ShowModal();
 
-if (dialog.Layer != null)
-{
-   using var tr = Application.DocumentManager.MdiActiveDocument.StartTransaction();
-   
-   
-   
-   tr.Commit();
-}
-   
+if (dialog.Layer == null)
+	return;
 
+using var tr = Application.DocumentManager.MdiActiveDocument.TransactionManager.StartTransaction();
 
+var layerTable = (LayerTable)tr.GetObject(Application.DocumentManager.MdiActiveDocument.Database.LayerTableId, OpenMode.ForRead);
+
+if (layerTable.Has(dialog.Layer.Name))
+	return;
+
+layerTable.UpgradeOpen();
+layerTable.Add(dialog.Layer);
+tr.AddNewlyCreatedDBObject(dialog.Layer, true);
+tr.Commit();
 ```
 
 ![image](https://user-images.githubusercontent.com/79826944/235406600-b58b7540-378b-4818-ae4d-8dc29dbe8498.png)
